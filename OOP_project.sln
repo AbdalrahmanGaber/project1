@@ -1,25 +1,138 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.13.35931.197 d17.13
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP_project", "OOP_project\OOP_project.csproj", "{82F71DF3-3261-4F0E-AAD5-10EF93F84D50}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{82F71DF3-3261-4F0E-AAD5-10EF93F84D50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{82F71DF3-3261-4F0E-AAD5-10EF93F84D50}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{82F71DF3-3261-4F0E-AAD5-10EF93F84D50}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{82F71DF3-3261-4F0E-AAD5-10EF93F84D50}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {355D514D-8596-4EC4-8DAC-61DC02BF38CF}
-	EndGlobalSection
-EndGlobal
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OOP_project
+{
+    public abstract class Vehicle
+    {
+        protected int model;
+        protected string brand;
+        protected int vehicleid;
+        protected int fueltaype;
+        protected bool isavilable;
+        protected float dailyrate;
+        protected int fueltankcapicity;
+     
+
+        //Cnstructors
+        public Vehicle() { }    
+        
+      public Vehicle(int model, string brand, int ID, int ft, bool isAvilable, float dr, int ftc)
+        {
+            Model = model;
+            Brand = brand;
+            VehicleID = ID;
+            FuelTaype = ft;
+            DailyRate = dr;
+            IsAvilable = isAvilable;
+            FuelTankCapicity = ftc;
+        }
+
+        //another way for paramtraizeconstructor
+       /*  
+         public vehicle(int model, string brand, int vehicleID, int ft, bool isAvilable, float dailyRate, int ftc)
+          {
+            SetModel(model);
+            SetBrand(brand);
+            SetFuelType(ft);
+            SetId(vehicleID);
+            SetRate(dailyRate);
+            SetFuelTankCapacity(ftc);
+            SetAvailability(isAvilable);
+          }
+       */
+
+
+        //Properties of Filed
+        public int Model
+        {
+            get { return model; }
+            set { model = value; }
+        }
+        public string Brand
+        {   get { return brand; }
+            set { brand = value; } 
+        }
+        public int VehicleID 
+        {   get { return vehicleid; }
+            set { vehicleid = value; } 
+        }
+        public float DailyRate
+        {
+            get { return dailyrate; }
+            set { dailyrate = value; }
+        }
+        public int FuelTankCapicity 
+        {   
+            get { return fueltankcapicity; }
+            set { fueltankcapicity = value; }
+        }
+        public int FuelTaype
+        {
+            get { return fueltaype; }
+            set { fueltaype = value; }
+        }
+        public bool IsAvilable 
+        {
+            get { return isavilable; }
+            set { isavilable = value; }
+        }
+
+
+
+        // Setters & Getters Methods
+        public void SetModel(int model)
+        { this.model = model; }
+        public int GetModel()
+        { return this.model; }
+
+
+        public void SetBrand(string brand)
+        { this.Brand = brand; }
+        public string GetBrand()
+        { return this.Brand; }
+
+
+        public void SetAvailability(bool available)
+        { this.isavilable = available; }
+        public bool GetAvailability()
+        { return this.isavilable; }
+
+
+        public void SetRate(float rate)
+        { this.DailyRate = rate; }
+        public float GetRate()
+        { return this.DailyRate; }
+
+
+        public void SetId(int id)
+        { this.vehicleid = id; }
+        public int GetId()
+        { return this.vehicleid; }
+
+
+        public void SetFuelTankCapacity(int ftc)
+        { this.fueltankcapicity = ftc; }
+        public int GetFuelTankCapacity()
+        { return this.fueltankcapicity; }
+
+
+        public void SetFuelType(int ft)
+        { this.fueltaype = ft; }
+        public int GetFuelType()
+        { return this.fueltaype; }
+
+
+
+        //abstract methods
+        public abstract double CalcRentalFee(int NO_Days);
+        public abstract void DisplayDetails();
+        
+
+       
+    }
+}
